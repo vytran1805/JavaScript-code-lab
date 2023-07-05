@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+    const product = {
+      name: "shirt",
+      "delivery-time": "1 day",
+      rating: {
+        stars: 4.5,
+        count: 87,
+      },
+      // Function inside obj: method
+      fun: function function1() {
+        console.log("function inside object");
+      },
+    };
+    console.log(product.rating.count);
+    // this returns: 'function inside object'
+    product.fun();
+    console.log(JSON.stringify(product));
+    const jsonString = JSON.stringify(product);
+    console.log(JSON.parse(jsonString));
+    */
+    console.log("hello".length);
+    console.log("hello".toUpperCase());
+
+    /**
+     * Obj1 is a reference that points to the location of * * an actual value
+     */
+    const obj1 = {
+      message: "Hello",
+    };
+    /*
+     this obj2 doesn't make a copy of obj1
+     Instead, i t make a copy of reference that point to the obj1
+    */
+    const obj2 = obj1;
+    obj1.message = "Good job!";
+    // get {message: "Good job!"}
+    console.log(obj1);
+
+    const obj3 = {
+      message: "Good job!",
+    };
+    // This will return FALSE because obj3 has a different ref than obj1 (points to different obj in the memory)
+    console.log(obj3 === obj1);
+    // This will return TRUE because obj2 points to the same obj in the computer's memory as obj1
+    console.log(obj2 === obj1);
+    const obj4 = {
+      message: "Good job!",
+      price: 799,
+    };
+    // const message = obj4.message;
+    const { message, price } = obj4;
+    console.log(message);
+
+    const obj5 = {
+      // message: message,
+      message,
+      method() {
+        //shorthand method syntax
+        console.log("method");
+      },
+    };
+    // this will return {message:'Good job!'}
+    console.log(obj5);
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <h3>Rock Paper Scissors</h3>
+    <button onclick="rock()">Rock</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="scissors()">Scissors</button>
+  </body>
+  <script>
+    function rock() {
+      yourChoice = "You picked rock. ";
+      let randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber == 1) {
+        computerChoice = "Computer picked rock. ";
+        result = "Tie!";
+      } else if (randomNumber == 2) {
+        computerChoice = "Computer picked paper. ";
+        result = "You lose!";
+      } else {
+        computerChoice = "Computer picked scissors. ";
+        result = "You win!";
+      }
+      alert(yourChoice + computerChoice + result);
+    }
+    function paper() {
+      yourChoice = "You picked paper. ";
+      let randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber === 1) {
+        computerChoice = "Computer picked rock. ";
+        result = "You win!";
+      } else if (randomNumber === 2) {
+        computerChoice = "Computer picked paper. ";
+        result = "Tie!";
+      } else {
+        computerChoice = "Computer picked scissors. ";
+        result = "You lose!";
+      }
+
+      alert(yourChoice + computerChoice + result);
+    }
+
+    function scissors() {
+      yourChoice = "You picked scissors. ";
+      let randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber === 1) {
+        computerChoice = "Computer picked rock. ";
+        result = "You lose!";
+      } else if (randomNumber === 2) {
+        computerChoice = "Computer picked paper. ";
+        result = "You win!";
+      } else {
+        computerChoice = "Computer picked scissors. ";
+        result = "Tie!";
+      }
+      alert(yourChoice + computerChoice + result);
+    }
+  </script>
+</html>

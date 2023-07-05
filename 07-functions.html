@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <h3>Rock Paper Scissors</h3>
+    <button onclick="result('Rock',pickComputerMove())">Rock</button>
+    <button onclick="result('Paper',pickComputerMove())">Paper</button>
+    <button onclick="result('Scissor',pickComputerMove())">Scissors</button>
+  </body>
+  <script>
+    function pickComputerMove() {
+      let computerMove = "";
+      let randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber == 1) {
+        computerMove = "Rock";
+      } else if (randomNumber == 2) {
+        computerMove = "Paper";
+      } else {
+        computerMove = "Scissors";
+      }
+      return computerMove;
+    }
+    function result(yourMove, computerMove) {
+      let result = "";
+      if (yourMove === "Rock") {
+        if (computerMove === "Rock") {
+          result = "Tie.";
+        } else if (computerMove === " Paper") {
+          result = "You lose.";
+        } else result = "You win.";
+      } else if (yourMove === "Paper") {
+        if (computerMove === "Rock") {
+          result = "You win.";
+        } else if (computerMove === " Paper") {
+          result = "Tie.";
+        } else result = "You lose.";
+      } else {
+        if (computerMove === "Rock") {
+          result = "You lose.";
+        } else if (computerMove === " Paper") {
+          result = "You win.";
+        } else result = "Tie.";
+      }
+      alert(
+        `You picked ${yourMove}. Computer picked ${computerMove}. ${result}`
+      );
+    }
+  </script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model (DOM)</title>
+    <style>
+      body {
+        font: Arial;
+      }
+      .js-subcribe-btn {
+        background-color: black;
+        color: white;
+        border: none;
+        width: 100px;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 30px;
+        cursor: pointer;
+      }
+      .clickedBtn {
+        background-color: #d7d7d7;
+        color: black;
+      }
+      .js-input {
+        height: 30px;
+        border: none;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        padding-left: 10px;
+      }
+      .calculate-btn {
+        height: 30px;
+        border: none;
+        background-color: black;
+        color: white;
+        width: 80px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .calculate-btn:hover {
+        opacity: 0.8;
+      }
+      .calculate-btn:active {
+        background-color: #3b3b3b;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Youtube subcribe button</h3>
+    <button class="js-subcribe-btn" onclick="handleClick()">Subcribe</button>
+    <h3>Amazon Shipping Calculator</h3>
+    <p>Orders under $40: plus $10 shipping</p>
+    <p>Orders over $40: FREE shipping</p>
+    <form action="">
+      <input
+        type="text"
+        class="js-input"
+        placeholder="Cost of order..."
+        onkeydown="handleCostKeyDown(event)"
+      />
+      <button class="calculate-btn" type="button" onclick="calculateCost()">
+        Calculate
+      </button>
+    </form>
+    <p class="js-total-cost"></p>
+    <script>
+      /**
+       * Handle onClick button
+       */
+      function handleClick() {
+        const subcribeBtn = document.querySelector(".js-subcribe-btn");
+        if (subcribeBtn.innerHTML === "Subcribe") {
+          subcribeBtn.innerHTML = "Subcribed";
+          subcribeBtn.classList.add("clickedBtn");
+        } else {
+          subcribeBtn.innerHTML = "Subcribe";
+          subcribeBtn.classList.remove("clickedBtn");
+        }
+      }
+
+      function handleCostKeyDown(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent form submission if inside a <form> element
+          calculateCost();
+        }
+      }
+      /**
+       * Calculates the total cost when user inputs cost of order
+       */
+      function calculateCost() {
+        let totalCost;
+        const costInput = document.querySelector(".js-input");
+        const costValue = parseFloat(costInput.value);
+        if (costValue < 40) {
+          totalCost = costValue + 10;
+        } else totalCost = costValue;
+        document.querySelector(
+          ".js-total-cost"
+        ).innerHTML = `Total cost: $${totalCost}`;
+      }
+    </script>
+  </body>
+</html>

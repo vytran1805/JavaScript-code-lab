@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <h3>Rock Paper Scissors</h3>
+    <button onclick="result('Rock',pickComputerMove())">Rock</button>
+    <button onclick="result('Paper',pickComputerMove())">Paper</button>
+    <button onclick="result('Scissor',pickComputerMove())">Scissors</button>
+    <button onclick="resetScore()">Reset score</button>
+  </body>
+  <script>
+    // get score obj from localStorage, if it is null, set the default value
+    let score = JSON.parse(localStorage.getItem("score")) || {
+      wins: 0,
+      losses: 0,
+      ties: 0,
+    };
+    /*
+    // Set the default value for score obj if it is null
+    if (!score) {
+      score = {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+    }
+    */
+    function resetScore() {
+      score.wins = 0;
+      score.ties = 0;
+      score.losses = 0;
+      // remove localStorage obj
+      localStorage.removeItem("score");
+      alert(
+        `Scores resetted!
+        Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`
+      );
+    }
+    function pickComputerMove() {
+      let computerMove = "";
+      let randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber == 1) {
+        computerMove = "Rock";
+      } else if (randomNumber == 2) {
+        computerMove = "Paper";
+      } else {
+        computerMove = "Scissors";
+      }
+      return computerMove;
+    }
+    function result(yourMove, computerMove) {
+      let result = "";
+      if (yourMove === "Rock") {
+        if (computerMove === "Rock") {
+          result = "Tie.";
+          score.ties++;
+        } else if (computerMove === " Paper") {
+          result = "You lose.";
+          score.losses++;
+        } else result = "You win.";
+        score.wins++;
+      } else if (yourMove === "Paper") {
+        if (computerMove === "Rock") {
+          result = "You win.";
+          score.wins++;
+        } else if (computerMove === " Paper") {
+          result = "Tie.";
+          score.ties++;
+        } else {
+          result = "You lose.";
+          score.losses++;
+        }
+      } else {
+        if (computerMove === "Rock") {
+          result = "You lose.";
+          score.losses++;
+        } else if (computerMove === " Paper") {
+          result = "You win.";
+          score.wins++;
+        } else {
+          result = "Tie.";
+          score.ties++;
+        }
+      }
+      /**
+       * Local storage only accept string params
+       * First param: name of the obj
+       * Second param: value (has to be converted to JSON)
+       */
+      localStorage.setItem("score", JSON.stringify(score));
+      alert(
+        `You picked ${yourMove}. Computer picked ${computerMove}. ${result}
+        Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`
+      );
+    }
+  </script>
+</html>
