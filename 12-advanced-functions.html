@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo list</title>
+  </head>
+  <body>
+    <h2>Advanced function</h2>
+    <div class="js-list-display"></div>
+  </body>
+  <script>
+    /***
+     * This function will run after 2000 milliseconds (2sec)
+     */
+    setTimeout(function () {
+      console.log("timeout");
+    }, 2000);
+
+    //This line will display first
+    console.log("next line");
+
+    /**
+     * This function will keep running every 3 sec
+     */
+    // setInterval(function(){
+    //     console.log('interval');
+    // },3000)
+    // console.log('nextline2');
+
+    const arrowFunction = (param, parm2) => {
+      console.log("hello");
+      return 5;
+    };
+    arrowFunction();
+
+    const oneParam = (param) => {
+      console.log(param + 1);
+    };
+    // return 3
+    oneParam(2);
+
+    // return 5
+    const oneLine = () => 2 + 3;;
+  </script>
+</html>

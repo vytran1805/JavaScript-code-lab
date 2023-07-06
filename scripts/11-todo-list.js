@@ -42,8 +42,8 @@ for (let i = 0; i < myArray.length; i++) {
     max = myArray[i];
   }
 }
-console.log(min);
-console.log(max);
+console.log(min); //return -6
+console.log(max); //return 14
 
 /**
  * Count how many times each string appeared in an array
@@ -51,9 +51,8 @@ console.log(max);
 const anotherArray = ["apple", "grape", "apple", "apple"];
 let counts = {};
 for (let str of anotherArray) {
-  //   let str = anotherArray[i];
   console.log(str);
   counts[str] = (counts[str] || 0) + 1;
 }
 
-console.log(counts);
+console.log(counts); //return {apple: 3, grape: 1}
